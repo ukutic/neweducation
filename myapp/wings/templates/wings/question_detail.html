@@ -1,0 +1,15 @@
+{% extends './base.html' %}
+{% block content %}
+    <p>{{ question.category.name}}</p>
+    <h1>{{ question.name }}</h1>
+    <div>        
+        <p>{{ question.mondai|linebreaksbr }}</p>
+        <p>正解と解説（必要な場合のみ）<p>
+        <p>{{ question.seikai|linebreaksbr }}</p>
+        <p>{{ question.kaisetu|linebreaksbr }}</p>        
+    </div>
+    <div>
+        <a href='{% url "wings:index" %}'>一覧</a>
+    </div>
+    
+{% endblock %}

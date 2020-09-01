@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<br>
+<br>
+<h1>Sign up（サインアップ）</h1>
+<section class='common-form'>
+    <form method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type='submit'>Sign up（サインアップ）</button>
+    </form>
+</section>
+{% endblock %}

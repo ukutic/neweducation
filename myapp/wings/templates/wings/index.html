@@ -1,0 +1,52 @@
+{% extends './base.html' %}
+{% block content %}
+    {% if searchForm %}
+        <form action='{% url "wings:index" %}' method='get'>
+            <div class='form-group'>
+                {{ searchForm }}
+                <input type='submit' class='btn btn-outline-primary' value='OK'>
+                <a href='{% url "wings:index" %}' class='btn btn-outline-secondary'>クリア</a>
+            </div>
+        </form>
+    {% endif %}
+    <h1>問題一覧</h1>
+    <table class='table table=striped table-hober'>
+        <tr>
+            <th>カテゴリ</th><th>単元</th>
+        </tr>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.category.name }}</td>
+                <td><a href='{% url "wings:detail" question.pk %}'>{{ question.name }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+"""
+
+                {% if age %}
+                    <table class='table table=striped table-hober'>
+                        <tr>
+                            <th>カテゴリ</th><th>単元</th>
+                        </tr>
+　　　　　　　　　　　　{% object_lists = question.objects.filter(question.category__icontains='age')
+                        {% for question in object_list %}
+                            <tr>
+                                <td>{{ question.category.name }}</td>
+                                <td><a href='{% url "wings:detail" question.pk %}'>{{ question.name }}</a></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    学年を選択してください
+                    中学１年生　　　　　　　　    
+                    中学２年生
+                    中学３年生
+　　　　　　　　　　<li class='nav-item'>
+　　　　　　　　　　<span class='navbar-text'>{{ user }} - </span>
+　　　　　　　　　　</li>
+　　　　　　　　　　<li class='nav-item'>
+                        <a href='{% url "logout" %}' class='logout nav-link'>Logout（ログアウト）</a>
+                    </li>
+                {% endif %}
+"""
