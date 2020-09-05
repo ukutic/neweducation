@@ -27,11 +27,12 @@ class Question(models.Model):
     mondai = models.TextField(blank=True)
     seikai = models.TextField(blank=True)
     kaisetu = models.TextField(blank=True)
- 
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-
+    def __str__(self):
+        return self.name
 
 
 
