@@ -1,0 +1,25 @@
+{% extends './base.html' %}
+{% block content %}
+    <p>{{ question.category.name}}</p>
+    <h1>{{ question.name }}</h1>
+    <div>
+        <p>{{ question.mondai|linebreaksbr }}</p>
+
+            <form action='{% url "auto_q_p:saiten" %}' method='post'>
+                {% csrf_token %}
+                <div class='form-group'>
+                  <div>
+                    <label for="answer">あなたの答え</label>
+                    <textarea id="answer" name="answer">{{ answer }}</textarea>
+                  </div>
+                    <input type='submit' class='btn btn-outline-primary' value='正解を確認'>
+                    <a href='{% url "auto_q_p:question" %}' class='btn btn-outline-secondary'>クリア</a>
+                </div>
+            </form>
+
+    </div>
+    <div>
+        <a href='{% url "wings:index" %}'>一覧</a>
+    </div>
+
+{% endblock %}

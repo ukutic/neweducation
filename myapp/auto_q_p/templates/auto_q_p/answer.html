@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+{% block content %}
+    <p>{{ question.category.name}}</p>
+    <h1>{{ question.name }}</h1>
+    <div>
+        <p>{{ question.mondai|linebreaksbr }}</p>
+                  <div>
+                    <label for="answer">あなたの答え</label>
+                    <p>{{ answer }}</p>
+                    <p>正解は{{ seikai }}です。</p>
+                    <p>{{ message }}</p>
+                    <p>{% if kaisetu %}</p>
+                        {{ kaisetu }}
+                       {% endif %}
+                  </div>
+                    <a href='{% url "auto_q_p:question" %}' class='btn btn-outline-primary'>クリア</a>
+                </div>
+    </div>
+    <div>
+        <a href='{% url "wings:index" %}'>一覧</a>
+    </div>
+
+{% endblock %}
